@@ -38,18 +38,16 @@
 {
   const hourAngle = (h * 30) + (m * 0.5)
   const minAngle = (m * 6)
-  if(minAngle >= hourAngle){
-  const minimumAngle = parseInt(minAngle - hourAngle) 
-  return minimumAngle
-    
-  }
-  else{
-    const minimumAngle = parseInt(hourAngle - minAngle) 
-  return minimumAngle
-  }
-  
+  let angle = Math.abs(hourAngle - minAngle)
  
+ if(angle > 180){
+   angle = 360 - angle
+   
+ }
+    
+  return angle
 };
+ 
         </pre>
         <hr>
         <p><b>Check whether the year is Leap year or not.</b>
@@ -83,23 +81,26 @@
             Note: You have to complete Perfect _Check function. No need to take any input.</p>
             <pre>
               var Perfect_Check = (N) => 
-{
-  sum = 0
-  for(i=1; i<=N; i++){
-    if(N % i === 0){
-      sum = sum + i 
-    }
-  }
-  if(N === sum){
-    return "YES"
-  }
-  else{
-    return "NO"
-  }
-  
-      
-        
-};
+              {
+                sum = 0
+                if(N != 1 ){
+                for(i=1; i < N; i++){
+                  if(N % i === 0){
+                    sum = sum + i 
+                  }
+                }
+                
+                }
+                if(N === sum || N === 1){
+                  return "YES"
+                }
+                else{
+                  return "NO"
+                }
+                
+                    
+                      
+              };
             </pre>
 <hr>
 <p><b>Reverse a Number.</b>
